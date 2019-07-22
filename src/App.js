@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, {Suspense} from "react";
+import {Store} from "./redux/store";
+import { BrowserRouter as Router} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import Bootstrap from "./routes/Bootstrap";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+function App () {
   return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
+    <Provider store = {Store}>
+      <Router>
+        <Suspense fallback = {<div>Carregando...</div>}>
+          <Bootstrap/>
+        </Suspense>
+      </Router>
+    </Provider>
   );
 }
 
