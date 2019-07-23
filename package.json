@@ -15,6 +15,7 @@
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "concurrently": "^4.1.1",
+    "cors": "^2.8.5",
     "css-loader": "2.1.1",
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
@@ -67,6 +68,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
+    "start-api": "node api/scripts/start.js",
     "dev": "concurrently \"node api/scripts/start.js\" \"npm run start\"",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"

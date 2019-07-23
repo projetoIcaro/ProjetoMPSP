@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {Fragment, lazy} from 'react';
 import { Route } from 'react-router-dom'
-import controllerBootstrap from './main/Bootstrap';
 
 function Bootstrap () {
   return (
-    <Route path = "/main" component = {controllerBootstrap} />
+    <Fragment>
+      <Route path = {'/teste'} component = {lazy(() => import('./teste/Bootstrap'))} />
+      <Route path = {'/users'} component = {lazy(() => import('./users/Bootstrap'))} />
+    </Fragment>
   );
 }
 

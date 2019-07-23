@@ -1,6 +1,13 @@
-var express = require('express'),
-  app = express(),
-  port = process.env.PORT || 6000;
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+
+const port = process.env.PORT || 5000;
+
+
+
   // mongoose = require('mongoose'),
   // Task = require('./api/models/todoListModel'), //created model loading here
   // bodyParser = require('body-parser');
@@ -14,8 +21,10 @@ var express = require('express'),
 // app.use(bodyParser.json());
 
 
-let routes = require('../routes/teste'); //importing route
-routes(app); //register the route
+let routesTeste = require('../routes/teste'); //importing route
+routesTeste(app); //register the route
+let routesUsers = require('../routes/users'); //importing route
+routesUsers(app); //register the route
 
 
 app.listen(port);

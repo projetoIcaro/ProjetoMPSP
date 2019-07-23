@@ -2,6 +2,5 @@
 module.exports = function(app) {
   let teste = require('../controllers/teste');
 
-  app.route('/teste')
-    .get(teste.index)
+  app.route('/teste/index').get(teste.index);
 };
