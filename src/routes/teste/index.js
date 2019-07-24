@@ -1,11 +1,11 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 
 function index () {
   return (
     <Fragment>
       <div>teste</div>
-      <Link to={'/users/index'}>Eu sla state</Link>
+      <Link to={'/users/index'}>USERS/INDEX</Link>
     </Fragment>
   );
 }

@@ -1,21 +1,20 @@
-import React, {Suspense} from "react";
-import {Store} from "./redux/store";
-import { BrowserRouter as Router} from 'react-router-dom';
-import { Provider } from 'react-redux';
-import Bootstrap from './routes/Bootstrap';
+import React, { Suspense } from "react";
+import { BrowserRouter } from 'react-router-dom';
 import GlobalContext from './GlobalContext';
+import ReduxProvider from './redux/store';
+import Bootstrap from './routes/Bootstrap';
 
 function App () {
   return (
-    <Provider store = {Store}>
-      <Router>
+    <ReduxProvider>
+      <BrowserRouter>
         <GlobalContext>
           <Suspense fallback = {<div>Carregando...</div>}>
             <Bootstrap/>
           </Suspense>
         </GlobalContext>
-      </Router>
-    </Provider>
+      </BrowserRouter>
+    </ReduxProvider>
   );
 }
 

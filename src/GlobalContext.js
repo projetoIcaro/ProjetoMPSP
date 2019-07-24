@@ -1,16 +1,20 @@
-import React, {Fragment, useEffect} from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchDataFromApi } from './redux/actions/app';
 
-function GlobalContext ({children, location}) {
+function GlobalContext ({actions, children, location}) {
   useEffect(() => {
-    fetchByRoute(location);
-  });
+    // run on mount
+    // TODO: QUANDO ARRUMAR A API, ARRUMAR ESSAS ACTIONS TB
+    // actions.setPropsByRoute('/');
+  }, [actions]);
 
-  function fetchByRoute() {
-    fetch('http://localhost:5000' + location.pathname)
-      .then( res => res.json() )
-      .then(res => console.log(res));
-  }
+  useEffect(() => {
+    // run on pahname changes
+    // TODO: QUANDO ARRUMAR A API, ARRUMAR ESSAS ACTIONS TB
+    actions.setPropsByRoute(location.pathname);
+  }, [actions, location.pathname]);
 
   return (
     <Fragment>
@@ -19,4 +23,12 @@ function GlobalContext ({children, location}) {
   );
 }
 
-export default withRouter(GlobalContext);
+const mapDispatchToProps = (dispatch) => ({
+  actions: {
+    setPropsByRoute: (pathname) => dispatch(fetchDataFromApi(pathname)),
+  }
+});
+
+export default withRouter(
+  connect(null, mapDispatchToProps)(GlobalContext)
+);

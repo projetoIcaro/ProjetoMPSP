@@ -1,16 +1,18 @@
-import React, {Fragment, useContext} from 'react';
-import {Link} from "react-router-dom";
-import {GlobalContext} from "../../GlobalContext";
+import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 
 function index () {
-  // const context = useContext(GlobalContext);
-  // console.log(context);
   return (
     <Fragment>
-      <div>teste</div>
-      <Link to={'/teste/index'}>Eu sla state</Link>
+      <div>users</div>
+      <Link to={'/teste/index'}>TESTE/INDEX</Link>
     </Fragment>
     );
 }
 
-export default index;
+const mapStateToProps = state => ({
+  state,
+});
+
+export default connect(mapStateToProps)(index);
