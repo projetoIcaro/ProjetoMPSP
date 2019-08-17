@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Link } from "react-router-dom"
 import { Image, Button, Container, Grid, Menu, Icon, Input, Segment } from 'semantic-ui-react'
 import axios from 'axios'
-import SidebarExampleVisible from '../Component/Sidebar/sidebar'
+import SidebarExampleVisible from '../Component/Sidebar'
 import compassIcon from './resources/compassMenor.png'
 import 'semantic-ui-css/semantic.min.css'
 import './index.css'
