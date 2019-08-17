@@ -6,7 +6,7 @@ import compassIcon from './resources/compassMenor.png'
 import './index.css'
 
 const HeaderCompass = () => (
- 
+
 <div id="Header" class="ui top attached menu" style={{marginTop:'20px'}}>
         <div class="column item">
           <h2 class="ui header">

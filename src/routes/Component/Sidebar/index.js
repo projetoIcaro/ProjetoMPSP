@@ -5,7 +5,7 @@ import './index.css'
 
 const SidebarExampleVisible = () => (
   <Sidebar.Pushable as={Segment}>
-    <Sidebar className="teste" as={Menu} animation='overlay' icon='labeled' inverted vertical visible width='thin'>
+    <Sidebar as={Menu} animation='overlay' icon='labeled' inverted vertical visible width='thin'>
       <Link to="/info/index">
         <Menu.Item as='a'>
           <Icon name='home' />

@@ -2,9 +2,10 @@ import React, { Fragment } from 'react'
 import { Link } from "react-router-dom"
 import { Image, Button, Container, Grid, Menu, Icon, Input, Segment } from 'semantic-ui-react'
 import axios from 'axios'
-import SidebarExampleVisible from '../Component/Sidebar/index'
+import SidebarCompass from '../Component/SidebarCompass/index'
 import 'semantic-ui-css/semantic.min.css'
 import HeaderCompass from '../Component/Header/index'
+
 
 async function hardcodedSearch  () {
   await axios.get('http://localhost:3001/api/site/search', {
@@ -19,7 +20,7 @@ function index () {
   return (
     <Fragment>
       <HeaderCompass />
-      <SidebarExampleVisible />
+      <SidebarCompass />
     </Fragment>
   );
 }
