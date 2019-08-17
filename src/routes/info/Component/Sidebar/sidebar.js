@@ -6,15 +6,11 @@ const SidebarExampleVisible = () => (
     <Sidebar as={Menu} animation='overlay' icon='labeled' inverted vertical visible width='thin'>
       <Menu.Item as='a'>
         <Icon name='home' />
-        Teste
+        Home
       </Menu.Item>
       <Menu.Item as='a'>
-        <Icon name='gamepad' />
-        Games
-      </Menu.Item>
-      <Menu.Item as='a'>
-        <Icon name='camera' />
-        Channels
+        <Icon name='clock' />
+        History
       </Menu.Item>
     </Sidebar>
 
