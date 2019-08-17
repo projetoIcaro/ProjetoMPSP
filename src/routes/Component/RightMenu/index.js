@@ -10,7 +10,7 @@ export default class RightMenu extends Component {
             <Icon name='bars' size='big'></Icon>
             <div class="menu">
                 <Link to="/settings/index"> <a class="item"><i class="settings icon"></i> Settings</a> </Link>
-                <a href='/' class="item"><i class="logout icon"></i> Logout</a>
+                <Link to="/login/index"> <a href='/' class="item"><i class="logout icon"></i> Logout</a> </Link>
             </div>
         </div>
         );
