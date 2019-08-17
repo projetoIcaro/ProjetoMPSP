@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import { Image, Button, Container, Grid, Menu, Icon, Input, Segment, Item, Label, ItemHeader } from 'semantic-ui-react';
-import logo from './logo2.jpeg';
 import bolinhas from './bolinhas.png';
-import avatar from './avatar.jpg';
 import 'semantic-ui-css/semantic.min.css';
 import RightMenu from '../Component/RightMenu/index'
+import compassIcon from './compassMenor.png'
 
 function index () {
   return (
@@ -18,7 +17,12 @@ function index () {
       <Menu secondary>
         <Menu.Menu position='right'>
           <Menu.Item>
-            <RightMenu/>
+          <h2 class="ui header">
+            <img src ={compassIcon} style={{padding: 0}} /> 
+            <div class="content" style={{color: 'red'}}>
+              COMPASS
+            </div>
+          </h2>
           </Menu.Item>            
         </Menu.Menu>
       </Menu>
@@ -27,7 +31,7 @@ function index () {
       
   <Container> 
     <Grid>
-      <img src={logo} class="ui small image" style={{width: 220, height: 190, marginLeft: 430}} />  
+    
     </Grid>
   </Container>
 </Fragment> 
