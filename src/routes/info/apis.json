@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Jucesp",
+    "properties": [
+      "empresa"
+    ]
+  },
+  {
+    "name": "Siel",
+    "properties": [
+      "nome", "cpf"
+    ]
+  }
+]
