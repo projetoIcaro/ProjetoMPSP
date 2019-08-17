@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from "./Component/Card/Card";
+import Card from "./utils/component/Card/Card";
 import apiMap from './apis';
 
 function getCardsList (properties) {

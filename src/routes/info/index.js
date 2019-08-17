@@ -2,9 +2,9 @@ import React, { Fragment } from 'react'
 import { Link } from "react-router-dom"
 import { Image, Button, Container, Grid, Menu, Icon, Input, Segment } from 'semantic-ui-react'
 import axios from 'axios'
-import SidebarCompass from '../Component/SidebarCompass/index'
+import SidebarCompass from '../../utils/component/SidebarCompass/index'
 import 'semantic-ui-css/semantic.min.css'
-import HeaderCompass from '../Component/Header/index'
+import HeaderCompass from '../../utils/component/Header'
 
 
 async function hardcodedSearch  () {

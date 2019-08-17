@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import menuButton from '../RightMenu/menuButton.png'
+import menuButton from './menuButton.png'
 import { Icon } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 

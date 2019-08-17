@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import menuButton from '../RightMenu/menuButton.png'
 import { Link } from "react-router-dom";
 import { Image, Button, Container, Grid, Item, Menu, Icon, Input, Segment } from 'semantic-ui-react'
-import RightMenu from '../RightMenu/index'
+import RightMenu from '../RightMenu'
 import avatar from './avatar.jpg';
 
 export default class HeaderUserCompass extends Component {

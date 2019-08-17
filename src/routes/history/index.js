@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
-import SidebarExampleVisible from '../Component/Sidebar'
-import HeaderCompass from '../Component/Header/index'
+import SidebarExampleVisible from '../../utils/component/Sidebar'
+import HeaderCompass from '../../utils/component/Header'
 
 
 function index () {

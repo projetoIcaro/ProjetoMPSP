@@ -4,8 +4,8 @@ import 'semantic-ui-css/semantic.min.css'
 import { Link } from "react-router-dom";
 import compassIcon from './resources/compassMenor.png'
 import './index.css'
-import HeaderUserCompass from '../HeaderUserCompass/index'
-import RightMenu from '../RightMenu';
+import HeaderUserCompass from '../../../utils/component/HeaderUserCompass/index'
+import RightMenu from '../../../utils/component/RightMenu';
 
 const HeaderCompass = () => (
  /*

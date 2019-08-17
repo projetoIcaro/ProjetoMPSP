@@ -1,11 +1,11 @@
 import React, { Fragment, Component } from 'react';
 import { Link } from "react-router-dom";
 import { Image, Button, Container, Grid, Menu, Icon, Input, Segment, Item, Label, ItemHeader } from 'semantic-ui-react';
-import logo from './utils/logo2.jpeg';
-import bolinhas from './utils/bolinhas.png';
+import logo from './utils/images/logo2.jpeg';
+import bolinhas from './utils/images/bolinhas.png';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css'
-import HeaderUserCompass from '../Component/HeaderUserCompass/index'
+import HeaderUserCompass from '../../utils/component/HeaderUserCompass/index'
 import SituationalInputs from "./SituationalInputs";
 
 
