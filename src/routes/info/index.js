@@ -19,8 +19,12 @@ function index () {
   hardcodedSearch();
   return (
     <Fragment>
+      <Grid.Row>
       <HeaderCompass />
+      </Grid.Row>
+      <Grid.Row>
       <SidebarCompass />
+      </Grid.Row>    
     </Fragment>
   );
 }
