@@ -2,8 +2,9 @@ import React, { Fragment } from 'react'
 import { Link } from "react-router-dom"
 import { Image, Button, Container, Grid, Menu, Icon, Input, Segment } from 'semantic-ui-react'
 import axios from 'axios'
+import SidebarExampleVisible from './components/sidebar'
 import compassIcon from './resources/compassMenor.png'
-import menuButton from './resources/menu-button.png'
+import menuButton from './resources/menuButton.png'
 import 'semantic-ui-css/semantic.min.css'
 import './index.css'
 
@@ -20,7 +21,7 @@ function index () {
   return (
     <Fragment>
       <div id="Header" class="ui top attached menu" style={{marginTop:'20px'}}>
-        <div class="column">
+        <div class="column item">
           <h2 class="ui header">
             <img src ={compassIcon} style={{padding: 0}} /> 
             <div class="content" style={{color: 'red'}}>
@@ -28,8 +29,8 @@ function index () {
             </div>
           </h2>
         </div>
-        <div id="search" class="ui search item">
-          <input type="text" class="Retngulo-7" placeholder="Search ..."></input>
+        <div id="search" class="ui loading icon input item" style={{width:'20%'}}>
+          <Input placeholder='Search...' />
         </div>
         <div class="ui right aligned category search item">
           <div class="right column">
@@ -44,6 +45,7 @@ function index () {
           </div>
         </div>
       </div>
+      <SidebarExampleVisible />
     </Fragment>
   );
 }
