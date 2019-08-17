@@ -1,11 +1,12 @@
 import React, { Fragment, Component } from 'react';
 import { Link } from "react-router-dom";
 import { Image, Button, Container, Grid, Menu, Icon, Input, Segment, Item, Label, ItemHeader } from 'semantic-ui-react';
-import logo from './logo2.jpeg';
-import bolinhas from './bolinhas.png';
+import logo from './utils/logo2.jpeg';
+import bolinhas from './utils/bolinhas.png';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css'
 import HeaderUserCompass from '../Component/HeaderUserCompass/index'
+import SituationalInputs from "./SituationalInputs";
 
 
 function index () {
@@ -27,11 +28,7 @@ function index () {
     </Grid>
     
     <Grid style={{marginTop: 30, marginLeft: 370}}>
-      <Button class="teste" circular color="red" style={{marginRight: 10}}>CPF</Button>
-      <Button circular color="red" style={{marginRight: 10}}>RG</Button>
-      <Button circular color="red" style={{marginRight: 10}}>PIS</Button>
-      <Button circular color="red" style={{marginRight: 10}}>CNPJ</Button>
-      <Button circular color="red" style={{marginRight: 10}}>Nome</Button>
+      <SituationalInputs/>
     </Grid>
 
     <Grid style={{marginTop: 50, marginLeft: 480}} >
