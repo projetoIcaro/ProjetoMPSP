@@ -1,63 +1,66 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import { Link } from "react-router-dom";
-import { Image, Button, Container, Grid, Menu, Icon, Input, Segment } from 'semantic-ui-react';
-import compass from './compass.jpg';
+import { Image, Button, Container, Grid, Menu, Icon, Input, Segment, Item, Label, ItemHeader } from 'semantic-ui-react';
+import logo from './logo2.jpeg';
 import bolinhas from './bolinhas.png';
+import avatar from './avatar.jpg';
 import 'semantic-ui-css/semantic.min.css';
+import './index.css'
+import RightMenu from '../Component/RightMenu/index'
 
 function index () {
   return (
     
 <Fragment>
-  <Grid columns={3} divided>
-  <Grid.Column>
-  <img src={bolinhas}  class = "ui medium image" style={{width: 450, height: 240, padding: 0}} />
-  </Grid.Column>
-  <Grid.Column floated='right'>
-    <Segment>
-    <Menu secondary>
+  <Grid columns={3}>
+    <Grid.Column>
+      <img src={bolinhas}  class = "ui medium image" style={{width: 450, height: 240, padding: 0}} />
+    </Grid.Column>
+    <Grid.Column floated='right'>      
+      <Menu secondary>
         <Menu.Menu position='right'>
           <Menu.Item>
-            <Input icon='search' placeholder='Search...' />
+            <Icon name='bell outline' size='big'></Icon>    
           </Menu.Item>
-          <Menu.Item
-            name='logout'             
-          />
+          <Menu.Item>
+             <Item.Image size='tiny' src={avatar}/>
+            <span><h3>Jane Doe</h3></span>
+          </Menu.Item>
+          <Menu.Item>
+            <RightMenu/>
+          </Menu.Item>            
         </Menu.Menu>
       </Menu>
-    </Segment>
-</Grid.Column>
+    </Grid.Column>
   </Grid>
-
-
-     
+      
   <Container> 
-
     <Grid>
-      <img src={compass} class="ui small image" style={{width: 190, height: 160, marginLeft: 450}} />    
+      <img src={logo} class="ui small image" style={{width: 220, height: 190, marginLeft: 430}} />  
     </Grid>
-
-    <Grid style={{marginTop: 50, marginLeft: 370}}>
-      <Button color='red' style={{marginRight: 10}}>CPF</Button>
-      <Button color='red' style={{marginRight: 10}}>RG</Button>
-      <Button color='red' style={{marginRight: 10}}>PIS</Button>
-      <Button color='red' style={{marginRight: 10}}>CNPJ</Button>
-      <Button color='red' style={{marginRight: 10}}>Nome</Button>
+    
+    <Grid style={{marginTop: 30, marginLeft: 370}}>
+      <Button circular color='red' style={{marginRight: 10}}>CPF</Button>
+      <Button circular color='red' style={{marginRight: 10}}>RG</Button>
+      <Button circular color='red' style={{marginRight: 10}}>PIS</Button>
+      <Button circular color='red' style={{marginRight: 10}}>CNPJ</Button>
+      <Button circular color='red' style={{marginRight: 10}}>Nome</Button>
     </Grid>
 
     <Grid style={{marginTop: 50, marginLeft: 480}} >
-      <Button color='red' size='big' style={{marginRight: 10}}>BUSCAR</Button>
+      <Button circular color='red' size='big' style={{marginRight: 10}}>BUSCAR</Button>
     </Grid>
 
-    <Grid style={{marginTop: 50, marginLeft: 470}}>
-      <a href="www.google.com"><h2>Histórico</h2></a>
+    <Grid style={{marginTop: 50, marginLeft: 440}}>
+      <Item.Group link>
+        <Item>
+          <Item.Header><h3>Histórico de busca</h3></Item.Header>
+        </Item>   
+      </Item.Group>      
     </Grid>  
   </Container>
-</Fragment> 
-    
+</Fragment>     
   );
 }
-
-
 
 export default index;
