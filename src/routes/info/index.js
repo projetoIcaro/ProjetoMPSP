@@ -2,11 +2,11 @@ import React, { Fragment } from 'react'
 import { Link } from "react-router-dom"
 import { Image, Button, Container, Grid, Menu, Icon, Input, Segment } from 'semantic-ui-react'
 import axios from 'axios'
-import SidebarExampleVisible from './components/sidebar'
+import SidebarExampleVisible from './Component/Sidebar/sidebar'
 import compassIcon from './resources/compassMenor.png'
-import menuButton from './resources/menuButton.png'
 import 'semantic-ui-css/semantic.min.css'
 import './index.css'
+import RightMenu from '../Component/RightMenu/index'
 
 async function hardcodedSearch  () {
   await axios.get('http://localhost:3001/api/site/search', {
@@ -34,14 +34,7 @@ function index () {
         </div>
         <div class="ui right aligned category search item">
           <div class="right column">
-            <div class="ui simple dropdown item">
-              More
-              <img scr={menuButton} />
-              <div class="menu">
-                <a class="item"><i class="settings icon"></i> Settings</a>
-                <a class="item"><i class="logout icon"></i> Logout</a>
-              </div>
-            </div>
+            <RightMenu />
           </div>
         </div>
       </div>
