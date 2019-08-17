@@ -40,11 +40,11 @@ function index () {
     </Grid>
     
     <Grid style={{marginTop: 30, marginLeft: 370}}>
-      <Button circular color='red' style={{marginRight: 10}}>CPF</Button>
-      <Button circular color='red' style={{marginRight: 10}}>RG</Button>
-      <Button circular color='red' style={{marginRight: 10}}>PIS</Button>
-      <Button circular color='red' style={{marginRight: 10}}>CNPJ</Button>
-      <Button circular color='red' style={{marginRight: 10}}>Nome</Button>
+      <Button class="teste" circular color="red" style={{marginRight: 10}}>CPF</Button>
+      <Button circular color="red" style={{marginRight: 10}}>RG</Button>
+      <Button circular color="red" style={{marginRight: 10}}>PIS</Button>
+      <Button circular color="red" style={{marginRight: 10}}>CNPJ</Button>
+      <Button circular color="red" style={{marginRight: 10}}>Nome</Button>
     </Grid>
 
     <Grid style={{marginTop: 50, marginLeft: 480}} >
@@ -54,7 +54,7 @@ function index () {
     <Grid style={{marginTop: 50, marginLeft: 440}}>
       <Item.Group link>
         <Item>
-          <Item.Header><h3>Histórico de busca</h3></Item.Header>
+          <Link to="/history/index"> <Item.Header><h3>Histórico de busca</h3></Item.Header> </Link>
         </Item>   
       </Item.Group>      
     </Grid>  

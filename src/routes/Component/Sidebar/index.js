@@ -1,10 +1,11 @@
 import React from 'react'
 import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
+import './index.css'
 
 const SidebarExampleVisible = () => (
   <Sidebar.Pushable as={Segment}>
-    <Sidebar as={Menu} animation='overlay' icon='labeled' inverted vertical visible width='thin'>
+    <Sidebar className="teste" as={Menu} animation='overlay' icon='labeled' inverted vertical visible width='thin'>
       <Link to="/info/index">
         <Menu.Item as='a'>
           <Icon name='home' />
