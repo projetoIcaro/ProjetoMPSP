@@ -1,16 +1,15 @@
 import React, { Component, Fragment} from 'react';
-import { Image, Button, Container, Grid, Menu, Icon, Input, Segment, Item, Label, Modal, Form, Header } from 'semantic-ui-react';
-import bolinhas from './bolinhas.png';
+import { Button, Container, Grid, Menu, Icon, Input, Segment, Item, Modal, Form, Header } from 'semantic-ui-react';
+import bolinhas from './images/bolinhas.png';
 import 'semantic-ui-css/semantic.min.css';
-import compassIcon from './compassMenor.png'
-import ModalValidaCampos from './Component/ModalValidaCampos/ModalValidaCampos'
+import compassIcon from './images/compassMenor.png';
 
 export default class login extends Component {
 
     state = {
       login: "12345",
       senha: "",
-    }
+    };
 
     constructor(props){
       super(props);
@@ -20,41 +19,41 @@ export default class login extends Component {
 
     validaCampos = () => {
       return true
-    }
+    };
 
     submitLogin = () => {
-      let validado = this.validaCampos()
+      let validado = this.validaCampos();
       if(!validado){
           return
       }
 
       this.props.history.push('/search/index');
-    }
+    };
 
-    render(){ 
+    render(){
       return (
         <Fragment>
       <Grid columns={3}>
         <Grid.Column>
-          <img src={bolinhas}  class = "ui medium image" style={{width: 450, height: 240, padding: 0}} />
+          <img alt = "bolinhas" src={bolinhas}  className = "ui medium image" style={{width: 450, height: 240, padding: 0}} />
         </Grid.Column>
-        <Grid.Column floated='right'>      
+        <Grid.Column floated='right'>
           <Menu secondary>
             <Menu.Menu position='right'>
               <Menu.Item>
-              <h2 class="ui header">
-                <img src ={compassIcon} style={{padding: 0}} /> 
-                <div class="content" style={{color: 'red'}}>
+              <h2 className = "ui header">
+                <img alt = "compass" src ={compassIcon} style={{padding: 0}} />
+                <div className = "content" style={{color: 'red'}}>
                   COMPASS
                 </div>
               </h2>
-              </Menu.Item>            
+              </Menu.Item>
             </Menu.Menu>
           </Menu>
         </Grid.Column>
       </Grid>
-          
-      <Container> 
+
+      <Container>
         <Grid style={{marginLeft:350}}>
           <Segment>
             <Form>
@@ -76,7 +75,7 @@ export default class login extends Component {
             <Modal trigger={<Item.Group link>
               <Item>
                 <Item.Header><h5>Esqueci a senha</h5></Item.Header>
-              </Item>   
+              </Item>
             </Item.Group>}>
               <Modal.Header>Recuperação de Senha</Modal.Header>
               <Modal.Content>
@@ -100,10 +99,10 @@ export default class login extends Component {
 
             <Button circular color='red' floated='right' onClick={this.submitLogin}>LOG IN</Button>
           </Segment>
-          
+
         </Grid>
       </Container>
-    </Fragment>    
+    </Fragment>
   );
 }
 }
