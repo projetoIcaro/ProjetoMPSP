@@ -1,11 +1,14 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment} from 'react';
+import { Button, Container, Grid, Menu, Icon, Input, Segment, Item, Modal, Form, Header } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
 
-function index () {
-  return (
-    <Fragment>
-      <div>Famosa Página de Configuração</div>
-    </Fragment>
-  );
-}
+export default class settings extends Component {
 
-export default index;
+    render(){
+      return (
+        <Fragment>
+        
+        </Fragment>
+      );
+    }
+  }
