@@ -3,7 +3,7 @@ import './index.css'
 
 import React from 'react'
 import { Header, Input, Menu } from 'semantic-ui-react'
-import RightMenu from 'utils/component/RightMenu';
+import RightMenu from 'component/RightMenu';
 import compassIcon from './images/compassMenor.png'
 
 const HeaderCompass = () => (

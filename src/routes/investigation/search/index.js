@@ -1,4 +1,4 @@
-/*import React, { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Link } from "react-router-dom";
 import {
   Button,
@@ -10,7 +10,7 @@ import logo from './images/logo2.jpeg';
 import bolinhas from './images/bolinhas.png';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
-import HeaderUserCompass from 'utils/component/HeaderUserCompass/index';
+import HeaderUserCompass from 'component/HeaderUserCompass/index';
 import InputByTag from './InputByTag';
 
 
@@ -53,4 +53,3 @@ function index () {
 }
 
 export default index;
-*/
