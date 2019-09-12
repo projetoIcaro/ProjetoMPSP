@@ -37,7 +37,7 @@ const HeaderCompass = () => (
     </div>
   </h2>
   </Header>
-  <Menu.Item fluid >
+  <Menu.Item>
     <Input icon='search' placeholder='Search...'/>
   </Menu.Item>
   <Menu.Item position='right'>

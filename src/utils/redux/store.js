@@ -4,6 +4,7 @@ import { applyMiddleware, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 import ReduxThunk from 'redux-thunk';
 import { app } from './reducers/app';
+import { Map } from 'immutable';
 
 const logger = createLogger({
   duration: true,
@@ -12,7 +13,7 @@ const logger = createLogger({
 });
 
 const middlewares = [logger, ReduxThunk];
-const preloadState = {};
+const preloadState = Map();
 const store = createStore(app, preloadState, applyMiddleware(...middlewares));
 
 function ReduxProvider (props) {

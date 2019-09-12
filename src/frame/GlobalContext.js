@@ -3,17 +3,14 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchDataFromApi } from 'utils/redux/actions/app';
 
-function GlobalContext ({actions, children, location}) {
+function GlobalContext (props) {
+  const {actions, children, location} = props;
   useEffect(() => {
-    // run on mount
-    // TODO: QUANDO ARRUMAR A API, ARRUMAR ESSAS ACTIONS TB
-    // actions.setPropsByRoute('/');
+    actions.fetchConfigData();
   }, [actions]);
 
   useEffect(() => {
-    // run on pahname changes
-    // TODO: QUANDO ARRUMAR A API, ARRUMAR ESSAS ACTIONS TB
-    actions.setPropsByRoute(location.pathname);
+    actions.fetchRouteData(location.pathname);
   }, [actions, location.pathname]);
 
   return (
@@ -25,7 +22,8 @@ function GlobalContext ({actions, children, location}) {
 
 const mapDispatchToProps = (dispatch) => ({
   actions: {
-    setPropsByRoute: (pathname) => dispatch(fetchDataFromApi(pathname)),
+    fetchConfigData: () => dispatch(fetchDataFromApi('/config')),
+    fetchRouteData: (pathname) => dispatch(fetchDataFromApi(pathname)),
   }
 });
 

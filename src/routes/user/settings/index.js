@@ -6,7 +6,7 @@ export default class settings extends Component {
     render(){
       return (
         <Fragment>
-        
+
         </Fragment>
       );
     }

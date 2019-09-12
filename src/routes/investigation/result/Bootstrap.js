@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 
 function Bootstrap (props) {
   return (
-    <Route path = {props.match.path + '/index'} component = {lazy(() => import('./index'))} />
+    <Route path = {props.match.path + '/'} component = {lazy(() => import('./index'))} />
   );
 }
 
