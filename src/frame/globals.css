@@ -1,0 +1,138 @@
+:root {
+    --line-height-body: 24px; /* 1.5em 24px ideal para o 16px de font-size */
+    --font-size-big-1: 28px; /* 1.75rem */
+    --font-size-big-2: 23px; /* 1.4375rem */
+    --font-size-big-3: 20px; /* 1.25rem */
+    --font-size-large: 2.5rem;
+    --font-size-body: 16px; /* 1rem */
+    --font-size-small-1: 14px; /* 0.875rem */
+    --font-size-small-2: 12px; /* 0.75rem */
+    --font-size-small-3: 10px; /* 0.625rem */
+    --svg-size-big-1: var(--font-size-big-1);
+    --svg-size-big-2: var(--font-size-big-2);
+    --svg-size-big-3: var(--font-size-big-3);
+    --svg-size-body: var(--font-size-body);
+    --svg-size-small-1: var(--font-size-small-1);
+    --svg-size-small-2: var(--font-size-small-2);
+    --svg-size-x-large: 4.0rem;
+    --svg-size-large: 3.5rem;
+    --line-height-hard: 1.5em;
+    --line-height-soft: 1.2em;
+    --line-height-form: 1.5em;
+
+    --color-text: #3c3a3b; /* #3c3a3b */
+
+    /**
+     * Base colors
+     */
+    --color-dark-accent: #8B83A3;
+    --color-dark-shades: #272530;
+    --color-light-accent: #E1AB5A;
+    --color-light-shades: #FAF8FA;
+    --color-main: #D51F26;
+    --color-gray: #dad2d8;
+
+    /**
+     * Base colors alternative shades
+     */
+    --color-main-11: var(--color-main);
+    --color-main-13: #d83339;
+    --color-main-15: #e05c61;
+
+    --color-tag: var(--color-dark-accent);
+
+    --gradient-color-from: #FDFDFD;
+    --gradient-color-to: #FAF8FA;
+
+    --color-gray-01: #141414;
+    --color-gray-03: #3c3a3b;
+    --color-gray-05: #646063;
+    --color-gray-07: #8b868a;
+    --color-gray-09: #b3acb1;
+    --color-gray-11: var(--color-gray);
+    --color-gray-13: #e0dadf;
+    --color-gray-15: #e7e2e6;
+    --color-gray-17: #eeeaed;
+    --color-gray-19: #f4f2f4;
+    --color-gray-21: #fbfafb;
+
+    /**
+     * Alternative colors
+     */
+    --color-orchid: #da60ed;
+    --color-silver-chalice: #a6adbc;
+    --color-vivid-orange-peel: #fea102;
+    --color-yellow-green: #77d82a;
+    --color-brilliant-azure: #4ba2fc;
+    --color-pastel-red: #ff665e;
+    --color-jet: #2d2e34;
+    --color-pastel-yellow: #fdf49c;
+    --color-antique-ruby-light: #86272d;
+    --color-antique-ruby-dark: #782328;
+    --color-banana-yellow: #fee93c;
+    --color-anti-flash-white: #f2eff2;
+    --color-kelly-green: #58B011;
+
+    /**
+     * Vivid colors altenative shades
+     */
+    --color-vivid-orange-peel-11: var(--color-vivid-orange-peel);
+    --color-vivid-orange-peel-19: #fee5ba;
+    --color-vivid-orange-peel-21: #fef6e8;
+
+    /**
+     * Layout colors
+     */
+    --button-color-default: var(--color-light-shades);
+    --button-color-primary: var(--color-main);
+    --button-color-info: var(--color-dark-shades);
+    --button-color-warning: var(--color-light-accent);
+
+    --table-color-border: var(--color-gray-17);
+    --table-font-size: var(--font-size-small-1);
+    --table-color-text: var(--color-gray-05);
+
+    --form-color-field-border: var(--color-gray-11);
+    --form-color-label-text: var(--color-gray-07);
+    --form-color-text: var(--color-gray-05);
+    --form-color-theme: var(--color-main-13);
+    --form-color-warning-text: var(--color-vivid-orange-peel);
+    --form-color-warning-field-border: var(--color-vivid-orange-peel);
+    --form-color-warning-field-bg: var(--color-vivid-orange-peel-21);
+    --form-max-width: 800px;
+    --form-font-size: var(--font-size-small-1);
+    --form-font-size-label: var(--font-size-small-2);
+    --form-element-margin-bottom: 16px;
+
+    --status-color-neutral: var(--color-jet);
+    --status-color-ok: var(--color-brilliant-azure);
+    --status-color-warning: var(--color-vivid-orange-peel);
+
+    --header-color-bg: var(--color-light-shades);
+    --push-menu-color-bg: var(--color-jet);
+    --top-bar-color-bg: var(--color-main);
+    --user-menu-color-bg: var(--color-antique-ruby-light);
+    --color-text-hint: var(--color-gray-09);
+    --color-text-warning: var(--color-vivid-orange-peel);
+    --color-text-dark: var(--color-text);
+    --color-text-light: var(--color-light-shades);
+    --color-text-light-link: var(--color-gray-11);
+    --color-text-title: var(--color-main);
+    --color-text-link: #228CDB; /* 228CDB 016FB9 3f88c5 9C95DC 1E91D6 #016FB9 #6699CC */
+
+}
+
+* {
+    font-family: 'sans-serif';
+    margin: 8px;
+}
+
+button {
+    border-radius: 16px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+button:hover {
+    filter: brightness(115%);
+}

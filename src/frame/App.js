@@ -1,3 +1,5 @@
+import './globals.css';
+
 import React, {Suspense} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import Bootstrap from 'routes/Bootstrap';

@@ -1,0 +1,6 @@
+:local(.wrapper) {
+    background-color: var(--color-main);
+    color: var(--color-text-light);
+    font-size: var(--font-size-big-2);
+    padding: 8px 24px;
+}

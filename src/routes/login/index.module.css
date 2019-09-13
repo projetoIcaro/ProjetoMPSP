@@ -1,0 +1,10 @@
+:local(.wrapper) > img {
+    height: 64px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+:local(.wrapper) {
+    width: 320px;
+}
