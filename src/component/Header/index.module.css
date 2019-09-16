@@ -1,3 +1,15 @@
+:local(.wrapper) {
+    height: 64px;
+    position: relative;
+    width: 100%;
+}
+
+:local(.wrapper) > img {
+    height: 64px;
+    position: absolute;
+    right: 0;
+}
+
 .Retngulo-7 {
     width: 914px;
     height: 39px;
@@ -23,8 +35,8 @@
 }
 
 .headerCompass {
-    width: 100%; 
-    height:100px; 
+    width: 100%;
+    height: 100px;
     background-Color:green;
     padding:20;
     border:1px solid;

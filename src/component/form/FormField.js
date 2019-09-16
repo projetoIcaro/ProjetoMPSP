@@ -1,15 +1,13 @@
 import style from './FormField.module.css';
 
 import React from 'react';
-import {Segment as SegmentSemantic} from 'semantic-ui-react';
 
 function FormField (props) {
 	return (
-		<SegmentSemantic
-			className={style.wrapper}
-		>
+		<div className={style.wrapper}>
+			<h2>{props.title}</h2>
 			{props.children}
-		</SegmentSemantic>
+		</div>
 	);
 }
 

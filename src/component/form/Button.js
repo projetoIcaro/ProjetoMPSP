@@ -4,11 +4,11 @@ import React from 'react';
 
 function Button (props) {
 	return (
-		<button
-			className={style.wrapper}
-		>
-			{props.children}
-		</button>
+		<div className={style.wrapper}>
+			<button>
+				{props.children}
+			</button>
+		</div>
 	);
 }
 

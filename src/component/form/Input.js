@@ -1,18 +1,16 @@
+import style from './Input.module.css';
+
 import React from 'react';
-import {Icon as IconSemantic, Input as InputSemantic} from 'semantic-ui-react';
-import 'semantic-ui-css/semantic.min.css';
+import SvgIcon from '../SvgIcon';
 
 function Input (props) {
 	return (
-		<div>
-			<InputSemantic
-				icon={true}
+		<div className={style.wrapper}>
+			<input
+				name={props.name}
 				placeholder={props.placeholder}
-				size={props.size}
-			>
-				<input/>
-				<IconSemantic name={props.icon}/>
-			</InputSemantic>
+			/>
+			{props.icon ? <SvgIcon/> : null}
 		</div>
 	);
 }

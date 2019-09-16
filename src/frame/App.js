@@ -6,6 +6,7 @@ import Bootstrap from 'routes/Bootstrap';
 import ReduxProvider from 'utils/redux/store';
 import GlobalContext from './GlobalContext';
 import GlobalRouter from './GlobalRouter';
+import Header from 'component/Header';
 
 function App () {
   return (
@@ -13,6 +14,7 @@ function App () {
       <BrowserRouter>
         <GlobalRouter/>
         <GlobalContext>
+					<Header isLogin={true}/>
           <Suspense fallback = {<div>Carregando...</div>}>
             <Bootstrap/>
           </Suspense>

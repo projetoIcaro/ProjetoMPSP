@@ -123,16 +123,26 @@
 }
 
 * {
-    font-family: 'sans-serif';
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     margin: 8px;
-}
-
-button {
-    border-radius: 16px;
-    display: inline-block;
-    text-decoration: none;
 }
 
 button:hover {
     filter: brightness(115%);
+}
+
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#root > * {
+    margin: auto;
+}
+
+#root input {
+    border: none;
+    outline: none;
 }
