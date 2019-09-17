@@ -5,7 +5,7 @@
 
 export const fetchDataFromApi = (pathname) => {
   return dispatch => {
-    fetch('http://localhost:3001' + pathname, {credentials: 'include', method: 'GET'})
+    fetch('http://localhost:3001' + pathname, {method: 'GET'})
       .then(res => res.json())
       .then(res => dispatch({data: res, type: 'SET_ROUTE_PROPS'}))
       .catch((err) => console.error(err));
@@ -17,7 +17,10 @@ export const postFormData = (pathname) => {
     fetch('http://localhost:3001' + pathname, {
       credentials: 'include',
       method: 'POST',
-      headers: {},
+      headers: {
+        // 'Access-Control-Allow-Origin': 'http://localhost:3001',
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({username: 'admin', password: 'pass'}),
     })
       .then(res => res.json())
