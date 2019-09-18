@@ -1,20 +1,22 @@
+import style from './FormWrapper.module.css';
+
 import React from 'react';
-import {Form as FormSemantic} from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {postFormData} from 'utils/redux/actions/app';
+import Input from 'component/form/Input';
+import Button from 'component/form/Button';
 
-function Form (props) {
+function FormWrapper (props) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		props.actions.submitForm(props.location.pathname)
 	};
 	return (
-		<FormSemantic
-			onSubmit={handleSubmit}
-		>
+		<form autoComplete="off" className={style.wrapper} onSubmit={handleSubmit}>
+			<h2>{props.title}</h2>
 			{props.children}
-		</FormSemantic>
+		</form>
 	);
 }
 
@@ -25,5 +27,10 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withRouter(
-	connect(null, mapDispatchToProps)(Form)
+	connect(null, mapDispatchToProps)(FormWrapper)
 );
+
+export {
+	Button,
+	Input,
+};

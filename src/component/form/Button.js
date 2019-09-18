@@ -1,4 +1,4 @@
-import style from './button.module.css';
+import style from './Button.module.css';
 
 import React from 'react';
 
