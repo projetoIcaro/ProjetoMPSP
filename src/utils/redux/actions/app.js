@@ -28,3 +28,19 @@ export const postFormData = (pathname) => {
       .catch((err) => console.error(err));
   }
 };
+
+export const setAttrProps = (attribute, attrValue, formKey) => {
+  if (formKey) {
+    return dispatch => dispatch({
+      attribute,
+      formKey,
+      data: attrValue,
+      type: 'SET_ATTR_FORM_PROPS',
+    })
+  }
+  return dispatch => dispatch({
+    attribute,
+    data: attrValue,
+    type: 'SET_ATTR_PROPS',
+  })
+};

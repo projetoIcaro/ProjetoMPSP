@@ -7,8 +7,8 @@ function login () {
   return (
 		<div className={styles.wrapper}>
 			<FormWrapper title="LOG IN">
-				<Input name="usurname" placeholder="Usuario"/>
-				<Input name="password" icon={true} placeholder="Senha"/>
+				<Input attribute={['username']} name="usurname" placeholder="Usuario"/>
+				<Input attribute={['password']} name="password" icon={true} placeholder="Senha"/>
 				<Button className="button" circular={false}>Acessar</Button>
 			</FormWrapper>
     </div>

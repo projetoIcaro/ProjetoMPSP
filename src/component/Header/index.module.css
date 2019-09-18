@@ -1,6 +1,8 @@
 :local(.wrapper) {
     border-bottom: 1px solid black;
+    display: flex;
     height: 64px;
+    justify-content: flex-end;
     margin: 0 8px 0 8px;
     position: relative;
     width: 100%;
@@ -8,12 +10,16 @@
 
 :local(.wrapper) img {
     height: 56px;
-    margin: 4px 0 4px 0; /* centralizacao da imagem */
+    margin: 4px 8px; /* centralizacao da imagem */
 }
 
 :local(.wrapper) > div {
-    display: inline-flex;
+    display: flex;
     height: 64px;
-    margin: 0;
-    padding: 0;
+    justify-content: space-between;
+    width: 100%;
+}
+
+:local(.wrapper) > div > div {
+    align-self: center;
 }

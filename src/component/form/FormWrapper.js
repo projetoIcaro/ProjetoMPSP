@@ -1,6 +1,6 @@
 import style from './FormWrapper.module.css';
 
-import React from 'react';
+import React, {useState} from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {postFormData} from 'utils/redux/actions/app';
@@ -12,10 +12,17 @@ function FormWrapper (props) {
 		e.preventDefault();
 		props.actions.submitForm(props.location.pathname)
 	};
+	const [formKey] = useState(Date.now());
 	return (
-		<form autoComplete="off" className={style.wrapper} onSubmit={handleSubmit}>
+		<form
+			autoComplete="off"
+			className={style.wrapper}
+			onSubmit={handleSubmit}
+		>
 			<h2>{props.title}</h2>
-			{props.children}
+			{props.children.map((Component, key) => {
+				return React.cloneElement(Component, {formKey, key})
+			})}
 		</form>
 	);
 }

@@ -1,8 +1,9 @@
 import style from './index.module.css';
-import 'semantic-ui-css/semantic.min.css'
 
 import React from 'react';
 import compassMenu from './images/compass-menu.png'
+import User from './UserHeader';
+import {Input} from 'component/form/FormWrapper';
 
 function Header (props) {
 	return (
@@ -12,8 +13,8 @@ function Header (props) {
 			) : (
 				<div>
 					<img alt="compass" src={compassMenu}/>
-					<div>INPUT</div>
-					<div>TROSSO DO USUARIO</div>
+					<Input attribute={['search']} placeholder="Buscar"/>
+					<User/>
 				</div>
 			)}
 		</div>
