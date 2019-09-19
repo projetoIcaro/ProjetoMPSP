@@ -1,14 +1,13 @@
-import './SvgIcon.css';
+import style from './SvgIcon.module.css';
 
+import cn from 'classnames';
 import React from 'react';
 
 function SvgIcon(props) {
   return (
-    <div className='svg-icon'>
-      <svg className={'icon-' + props.name}>
-        <use href={'#icon-' + props.name}/>
-      </svg>
-    </div>
+		<svg className={cn(style.wrapper, 'svg-icon')}>
+			<use href={'#icon-' + props.name}/>
+		</svg>
   );
 }
 
