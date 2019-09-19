@@ -1,14 +1,8 @@
-import React, {Fragment} from 'react';
-import HeaderCompass from 'component/Header';
-import SvgIcon from 'component/SvgIcon';
+import React from 'react';
 
 function index () {
   return (
-    <Fragment>
-      <HeaderCompass />
-      <SvgIcon name='linecons-search'/>
-      <div>Famosa Página de Histórico</div>
-    </Fragment>
+    <h1>DASHBOARD</h1>
   );
 }
 

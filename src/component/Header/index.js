@@ -1,14 +1,15 @@
 import style from './index.module.css';
 
 import React from 'react';
-import compassMenu from './images/compass-menu.png'
-import User from './UserHeader';
+import {withRouter} from 'react-router-dom';
 import {Input} from 'component/form/FormWrapper';
+import compassMenu from './images/compass-menu.png';
+import User from './UserHeader';
 
 function Header (props) {
 	return (
 		<div className = {style.wrapper}>
-			{!props.isLogin ? (
+			{props.location.pathname === '/login' ? (
 				<img alt="compass" src={compassMenu}/>
 			) : (
 				<div>
@@ -21,4 +22,4 @@ function Header (props) {
 	);
 }
 
-export default Header;
+export default withRouter(Header);

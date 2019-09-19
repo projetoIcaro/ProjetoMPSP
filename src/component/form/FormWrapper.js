@@ -3,16 +3,16 @@ import style from './FormWrapper.module.css';
 import React, {useState} from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {postFormData} from 'utils/redux/actions/app';
 import Input from 'component/form/Input';
 import Button from 'component/form/Button';
+import {postFormData} from 'utils/redux/actions/app';
 
 function FormWrapper (props) {
+	const [formKey] = useState(Date.now());
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		props.actions.submitForm(props.location.pathname)
+		props.actions.submitForm(props.location.pathname, formKey)
 	};
-	const [formKey] = useState(Date.now());
 	return (
 		<form
 			autoComplete="off"
@@ -29,7 +29,7 @@ function FormWrapper (props) {
 
 const mapDispatchToProps = (dispatch) => ({
 	actions: {
-		submitForm: (pathname) => dispatch(postFormData(pathname)),
+		submitForm: (pathname, formKey) => dispatch(postFormData(pathname, formKey)),
 	}
 });
 

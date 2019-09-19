@@ -1,13 +1,7 @@
-import React, { Component, Fragment} from 'react';
-import 'semantic-ui-css/semantic.min.css';
+import React, {Component} from 'react';
 
 export default class settings extends Component {
-
-    render(){
-      return (
-        <Fragment>
-
-        </Fragment>
-      );
-    }
+  render(){
+    return <h1>USER/SETTINGS</h1>;
   }
+}

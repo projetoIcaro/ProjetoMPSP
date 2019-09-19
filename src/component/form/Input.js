@@ -1,27 +1,24 @@
 import style from './Input.module.css';
 
 import React, {useRef} from 'react';
-import SvgIcon from 'component/SvgIcon';
 import {connect} from 'react-redux';
+import SvgIcon from 'component/SvgIcon';
 import {setAttrProps} from 'utils/redux/actions/app';
 
 function Input (props) {
 	const inputRef = useRef();
 	const {actions} = props;
-	let timeout = null;
-	const handleChange = (e) => {
-		if (timeout) clearTimeout(timeout);
-		timeout = setTimeout(() => {
-			actions.setAttrValue(inputRef.current.value);
-		}, 1000);
+	const handleChange = () => {
+		actions.setAttrValue(inputRef.current.value);
 	};
 	return (
 		<div className={style.wrapper}>
 			<input
-				name={props.name}
-				onChange={handleChange}
-				placeholder={props.placeholder}
-				ref={inputRef}
+				name = {props.name}
+				onChange = {handleChange}
+				placeholder = {props.placeholder}
+				type = {props.type}
+				ref = {inputRef}
 			/>
 			{props.icon ? <SvgIcon/> : null}
 		</div>
