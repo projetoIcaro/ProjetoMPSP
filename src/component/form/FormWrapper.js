@@ -8,11 +8,11 @@ import Input from 'component/form/Input';
 import Button from 'component/form/Button';
 
 function FormWrapper (props) {
+	const [formKey] = useState(Date.now());
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		props.actions.submitForm(props.location.pathname)
 	};
-	const [formKey] = useState(Date.now());
 	return (
 		<form
 			autoComplete="off"
