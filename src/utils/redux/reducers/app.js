@@ -1,6 +1,5 @@
 import {fromJS} from 'immutable';
 
-const apiURL = 'http://localhost:3001';
 
 const setAppProperties = (state, attribute = [], data) => {
   return state.setIn(['app'].push(attribute), fromJS(data));
@@ -14,21 +13,26 @@ const setAttrFormProps = (state, attribute = [], data, formKey) => {
   return state.setIn(['form'].concat(formKey, attribute), fromJS(data));
 };
 
-const postFormData = (state, pathname, formKey) => {
-  const formData = state.getIn(['form', formKey]);
-  fetch(apiURL + pathname, {
-      credentials: 'include',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then(res => res.json())
-      .then(res => console.log(res))
-      .catch((err) => console.error(err));
-  return state;
+const postFormData = (state, data) => {
+  return state.withMutations((mutableState) => {
+    if (data.hasOwnProperty('isLogged')) {
+      mutableState.setIn(['isLogged'], data.isLogged);
+      delete data.isLogged;
+    }
+    mutableState.setIn(['app', 'route'], fromJS(data));
+  });
 };
+
+const getRouteData = (state, data) => {
+  return state.withMutations((mutableState) => {
+    if (data.hasOwnProperty('isLogged')) {
+      mutableState.setIn(['isLogged'], fromJS(data.isLogged));
+      delete data.isLogged;
+    }
+    mutableState.setIn(['form', 'response'], fromJS(data));
+  });
+};
+
 
 export const app = (state, action = null) => {
   switch(action.type) {
@@ -39,7 +43,9 @@ export const app = (state, action = null) => {
     case 'SET_ATTR_FORM_PROPS':
       return setAttrFormProps(state, action.attribute, action.data, action.formKey);
     case 'POST_FORM_DATA':
-      return postFormData(state, action.pathname, action.formKey);
+      return postFormData(state, action.data);
+    case 'GET_ROUTE_DATA':
+      return getRouteData(state, action.data);
     default:
       return state;
   }

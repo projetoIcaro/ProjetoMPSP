@@ -17,6 +17,7 @@ function Input (props) {
 				name = {props.name}
 				onChange = {handleChange}
 				placeholder = {props.placeholder}
+				required = {props.required}
 				type = {props.type}
 				ref = {inputRef}
 			/>

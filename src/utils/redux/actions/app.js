@@ -1,18 +1,28 @@
+const apiURL = 'http://localhost:3001';
+
 export const fetchDataFromApi = (pathname) => {
   return dispatch => {
-    fetch('http://localhost:3001' + pathname, {method: 'GET'})
+    fetch('http://localhost:3001' + pathname, {credentials: 'include', method: 'GET'})
       .then(res => res.json())
-      .then(res => dispatch({data: res, type: 'SET_ROUTE_PROPS'}))
+      .then(res => dispatch({data: res, type: 'GET_ROUTE_DATA'}))
       .catch((err) => console.error(err));
   }
 };
 
-export const postFormData = (pathname, formKey) => {
-  return dispatch => dispatch({
-    pathname,
-    formKey,
-    type: 'POST_FORM_DATA',
-  });
+export const postFormData = (formData, pathname) => {
+  return dispatch => {
+    fetch(apiURL + pathname, {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(res => res.json())
+      .then(res => dispatch({data: res, type: 'POST_FORM_DATA'}))
+      .catch((err) => console.error(err));
+  }
 };
 
 export const setAttrProps = (attribute, attrValue, formKey) => {

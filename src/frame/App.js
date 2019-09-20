@@ -12,12 +12,13 @@ function App () {
   return (
     <ReduxProvider>
       <BrowserRouter>
-        <GlobalRouter/>
         <GlobalContext>
-					<Header isLogin={true}/>
-          <Suspense fallback = {<div>Carregando...</div>}>
-            <Bootstrap/>
-          </Suspense>
+          <GlobalRouter>
+            <Header isLogin={true}/>
+            <Suspense fallback = {<div>Carregando...</div>}>
+              <Bootstrap/>
+            </Suspense>
+          </GlobalRouter>
         </GlobalContext>
       </BrowserRouter>
     </ReduxProvider>
