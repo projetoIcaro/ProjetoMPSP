@@ -1,6 +1,6 @@
 export const fetchDataFromApi = (pathname) => {
   return dispatch => {
-    fetch('http://localhost:3001' + pathname, {method: 'GET'})
+    fetch('http://localhost:3001' + pathname, {credentials: 'include', method: 'GET'})
       .then(res => res.json())
       .then(res => dispatch({data: res, type: 'SET_ROUTE_PROPS'}))
       .catch((err) => console.error(err));
