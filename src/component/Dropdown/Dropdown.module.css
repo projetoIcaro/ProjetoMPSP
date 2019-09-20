@@ -1,0 +1,29 @@
+:local(.wrapper) > div:nth-child(1) {
+    color: var(--color-main);
+    cursor: pointer;
+}
+
+:local(.wrapper) > div:nth-child(1):hover {
+    color: var(--color-main-15);
+}
+
+:local(.wrapper) > div:nth-child(2) {
+    background: #fff;
+    border: 1px solid var(--color-gray-13);
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(34, 36, 38, .15);
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+}
+
+:local(.wrapper) > div:nth-child(2) > div {
+    cursor: pointer;
+    padding: 8px;
+}
+
+:local(.wrapper) > div:nth-child(2) > div:hover {
+    background: var(--color-gray-17);
+}
