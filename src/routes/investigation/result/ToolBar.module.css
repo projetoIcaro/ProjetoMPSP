@@ -1,0 +1,11 @@
+:local(.wrapper) {
+    border: 1px solid black;
+    flex-direction: column;
+}
+
+:local(.wrapper) > div {
+    border: 2px dashed orange;
+    margin: 16px 0;
+    height: 64px;
+    width: 64px;
+}

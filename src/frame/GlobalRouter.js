@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
  * @return {null}
  */
 function GlobalRouter (props) {
+	return null;
   const isUserLogged = !!props.user;
   if (props.location.pathname === '/login' && isUserLogged) {
     return <Redirect to = "/investigation/workspace"/>;

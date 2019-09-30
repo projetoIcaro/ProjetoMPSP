@@ -123,7 +123,8 @@
 }
 
 * {
-    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    font-family: ArialNarrow, Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -133,7 +134,7 @@ button:hover {
 }
 
 #root {
-    height: 100%;
+    height: calc(100vh - 64px); /* tamanho do header, se mudar, mudar aqui tb */
     margin: 0;
     padding: 0;
     width: 100%;

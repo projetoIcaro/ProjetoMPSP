@@ -1,19 +1,15 @@
-import React, { Fragment } from 'react'
-import 'semantic-ui-css/semantic.min.css'
-import { Grid } from 'semantic-ui-react';
-import SidebarCompass from 'component/SidebarCompass/index'
-import HeaderCompass from 'component/Header'
+import styles from './Result.module.css';
+
+import React from 'react'
+import ToolBar from './ToolBar';
+import Cards from './Cards';
 
 function index () {
   return (
-    <Fragment>
-      <Grid.Row>
-      <HeaderCompass />
-      </Grid.Row>
-      <Grid.Row>
-      <SidebarCompass />
-      </Grid.Row>
-    </Fragment>
+    <div className = {styles.wrapper}>
+      <ToolBar/>
+      <Cards/>
+    </div>
   );
 }
 

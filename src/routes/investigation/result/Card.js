@@ -1,34 +1,11 @@
-import './Cards.css';
+import styles from './Card.module.css';
 
-import React, { useEffect, useState } from 'react';
-import 'semantic-ui-css/semantic.min.css';
-import { apiExtractor } from 'utils/axiosconfig';
+import React from 'react';
 
-function Card (props) {
-	const { apiName, properties } = props;
-	const [data, setData] = useState({});
-	const [loading, setLoading] = useState(true);
-	useEffect(() => {
-		apiExtractor.get(apiName, {
-			params: { ...properties }
-		})
-			.then( res => setData(res) )
-			.finally(() => setLoading(false));
-	}, []);
+function Card () {
 	return (
-		<div className="ui card">
-			<div className="content">
-				<div className="header">{apiName}</div>
-				<div className="description ui segment">
-					{loading ? (
-						<div className="ui active dimmer">
-							<div className="ui text loader">Loading</div>
-						</div>
-					) : (
-						<div>INFORMACOES LEGAIS</div>
-					)}
-				</div>
-			</div>
+		<div className = {styles.wrapper}>
+			<span>NOME DA API</span>
 		</div>
 	);
 }
