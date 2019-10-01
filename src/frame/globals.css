@@ -124,7 +124,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: ArialNarrow, Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -134,7 +134,7 @@ button:hover {
 }
 
 #root {
-    height: calc(100vh - 64px); /* tamanho do header, se mudar, mudar aqui tb */
+    height: 100vh; /* tamanho do header, se mudar, mudar aqui tb */
     margin: 0;
     padding: 0;
     width: 100%;
@@ -148,4 +148,12 @@ button:hover {
 #root input {
     border: none;
     outline: none;
+}
+
+#modal-root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
 }

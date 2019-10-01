@@ -1,13 +1,13 @@
 import styles from './Result.module.css';
 
 import React from 'react'
-import ToolBar from './ToolBar';
+import NavigationBar from './NavigationBar';
 import Cards from './Cards';
 
 function index () {
   return (
     <div className = {styles.wrapper}>
-      <ToolBar/>
+      <NavigationBar/>
       <Cards/>
     </div>
   );

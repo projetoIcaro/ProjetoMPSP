@@ -1,8 +1,8 @@
-import styles from './ToolBar.module.css';
+import styles from './NavigationBar.module.css';
 
 import React from 'react';
 
-function ToolBar () {
+function NavigationBar () {
 	return (
 		<div className = {styles.wrapper}>
 			<div></div>
@@ -13,4 +13,4 @@ function ToolBar () {
 	);
 }
 
-export default ToolBar;
+export default NavigationBar;

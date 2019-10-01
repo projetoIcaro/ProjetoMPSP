@@ -1,5 +1,5 @@
 import React, {lazy} from 'react';
-import { Route } from 'react-router-dom'
+import {Route} from 'react-router-dom';
 
 function Bootstrap (props) {
   return (
