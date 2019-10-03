@@ -1,6 +1,6 @@
 import styles from './Result.module.css';
 
-import React from 'react'
+import React from 'react';
 import NavigationBar from './NavigationBar';
 import Cards from './Cards';
 
