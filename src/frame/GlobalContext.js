@@ -6,7 +6,7 @@ import { fetchDataFromApi } from 'utils/redux/actions/app';
 function GlobalContext (props) {
   const {actions, children, location} = props;
   useEffect(() => {
-    actions.fetchConfigData();
+    // actions.fetchConfigData();
   }, [actions]);
 
   useEffect(() => {

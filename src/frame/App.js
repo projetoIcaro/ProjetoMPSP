@@ -7,6 +7,8 @@ import ReduxProvider from 'utils/redux/store';
 import GlobalContext from './GlobalContext';
 import GlobalRouter from './GlobalRouter';
 import Header from 'component/Header';
+import LoadingBar from 'component/LoadingBar';
+import Body from 'component/Body';
 
 function App () {
   return (
@@ -15,9 +17,11 @@ function App () {
         <GlobalRouter/>
         <GlobalContext>
 					<Header isLogin={true}/>
-          <Suspense fallback = {<div>Carregando...</div>}>
-            <Bootstrap/>
-          </Suspense>
+					<Body>
+            <Suspense fallback = {<LoadingBar/>}>
+              <Bootstrap/>
+            </Suspense>
+          </Body>
         </GlobalContext>
       </BrowserRouter>
     </ReduxProvider>

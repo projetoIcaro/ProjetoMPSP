@@ -22,21 +22,21 @@ function Search () {
 			return data;
 		});
 		setItemsToSearch(newItemsToSearch);
-	}
-	const renderButtons = () => {
-		return itemsToSearch.map((data) => {
-			if (data.isOpen) return null;
-			return <ItemButton handleClick = {() => toggleItem(data.id)}>{data.label}</ItemButton>;
-		});
-	}
+	};
 	const renderInputs = () => {
 		return itemsToSearch.map((data) => {
 			if (!data.isOpen) return null;
-			return <Input attribute={['search', data.id]} placeholder = {data.label}/>;
+			return <Input attribute={['search', data.id]} placeholder = {data.label} key = {data.id}/>;
 		});
-	}
+	};
+	const renderButtons = () => {
+		return itemsToSearch.map((data) => {
+			if (data.isOpen) return null;
+			return <ItemButton handleClick = {() => toggleItem(data.id)} key = {data.id}>{data.label}</ItemButton>;
+		});
+	};
 	return (
-		<div>
+		<div className = {styles.wrapper}>
 			<div className = {styles.inputSet}>{renderInputs()}</div>
 			<div className = {styles.buttonSet}>{renderButtons()}</div>
 			<Link to = "/investigation/result"><Button>Buscar</Button></Link>

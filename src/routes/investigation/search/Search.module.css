@@ -1,3 +1,19 @@
-:local(.buttonSet) {
+:local(.wrapper) {
+    display: block;
+    margin: 80px auto;
+    padding: 20px;
+    width: 840px;
+}
+
+:local(.wrapper) > :local(.inputSet) {
+    height: 320px;
+}
+
+:local(.wrapper) > :local(.inputSet) > * {
+    margin: 8px 0;
+}
+
+:local(.wrapper) > :local(.buttonSet) {
     display: inline-flex;
+    height: 152px;
 }

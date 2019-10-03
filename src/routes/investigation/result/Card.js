@@ -14,10 +14,10 @@ function Card (props) {
 	return (
 		<Fragment>
 			<div className={styles.wrapper} onClick={handleClick}>
-				<span>NOME DA API</span>
+				<span>{props.name}</span>
 			</div>
 			<Modal isOpen={isModalOpen} handleClose={handleCloseModal}>
-				API DE NOME {props.name}
+				{props.name}
 			</Modal>
 		</Fragment>
 	);
