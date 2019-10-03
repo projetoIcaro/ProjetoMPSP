@@ -1,22 +1,45 @@
+import styles from './Search.module.css';
+
 import React, {useState} from 'react';
-import {Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {Button, Input} from 'component/form/FormWrapper';
+import ItemButton from './ItemButton';
 
 function Search () {
-	const [formSubmit, setFormSubmit] = useState(false);
-	const handleClick = () => {
-		setFormSubmit(true);
-	};
+	const [itemsToSearch, setItemsToSearch] = useState([
+		{id: 'name', isOpen: false, label: 'Nome'},
+		{id: 'cis', isOpen: false, label: 'CIS'},
+		{id: 'rg', isOpen: false, label: 'RG'},
+		{id: 'cpf', isOpen: false, label: 'CPF'},
+		{id: 'cnpj', isOpen: false, label: 'CNPJ'},
+		{id: 'company', isOpen: false, label: 'Empresa'},
+	]);
+	const toggleItem = (id) => {
+		const newItemsToSearch = itemsToSearch.map((data) => {
+			if (data.id === id) {
+				data.isOpen = !data.isOpen;
+			}
+			return data;
+		});
+		setItemsToSearch(newItemsToSearch);
+	}
+	const renderButtons = () => {
+		return itemsToSearch.map((data) => {
+			if (data.isOpen) return null;
+			return <ItemButton handleClick = {() => toggleItem(data.id)}>{data.label}</ItemButton>;
+		});
+	}
+	const renderInputs = () => {
+		return itemsToSearch.map((data) => {
+			if (!data.isOpen) return null;
+			return <Input attribute={['search', data.id]} placeholder = {data.label}/>;
+		});
+	}
 	return (
 		<div>
-			<Input attribute={['search', 'name']} placeholder="Nome"/>
-			<Input attribute={['search', 'cis']} placeholder="CIS"/>
-			<Input attribute={['search', 'rg']} placeholder="RG"/>
-			<Input attribute={['search', 'cpf']} placeholder="CPF"/>
-			<Input attribute={['search', 'cnpj']} placeholder="CNPJ"/>
-			<Input attribute={['search', 'company']} placeholder="Empresa"/>
-			<Button handleClick={handleClick}>Buscar</Button>
-			{formSubmit ? <Redirect to="/investigation/result"/> : null}
+			<div className = {styles.inputSet}>{renderInputs()}</div>
+			<div className = {styles.buttonSet}>{renderButtons()}</div>
+			<Link to = "/investigation/result"><Button>Buscar</Button></Link>
 		</div>
 	);
 }

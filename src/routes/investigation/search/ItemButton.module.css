@@ -1,0 +1,19 @@
+:local(.wrapper) {
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 8px 11px 6px 0 rgba(0, 0, 0, 0.16);
+    height: 120px;
+    margin: 16px;
+    width: 88px;
+}
+
+:local(.wrapper) > :local(.icon) {
+    height: 65%;
+}
+
+:local(.wrapper) > :local(.label) {
+    border-top: 1px solid black;
+    height: 35%;
+    padding-top: 10px; 
+    text-align: center;
+}
