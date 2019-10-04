@@ -1,5 +1,5 @@
 :local(.wrapper) {
-    border-right: 1px solid black;
+    border-right: 1px solid var(--gray-main-color);
     flex-direction: column;
 }
 
@@ -17,9 +17,9 @@
 }
 
 :local(.currentLocation) {
-    border-left: 4px solid var(--color-main);
+    border-left: 4px solid var(--main-color);
 }
 
 :local(.currentLocation) svg {
-    fill: var(--color-main);
+    fill: var(--main-color);
 }

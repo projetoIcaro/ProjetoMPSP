@@ -1,18 +1,19 @@
 import styles from './Search.module.css';
 
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import {Button, Input} from 'component/form/FormWrapper';
+import SvgIcon from 'component/SvgIcon';
 import ItemButton from './ItemButton';
 
 function Search () {
 	const [itemsToSearch, setItemsToSearch] = useState([
-		{id: 'name', isOpen: false, label: 'Nome'},
-		{id: 'cis', isOpen: false, label: 'CIS'},
-		{id: 'rg', isOpen: false, label: 'RG'},
-		{id: 'cpf', isOpen: false, label: 'CPF'},
-		{id: 'cnpj', isOpen: false, label: 'CNPJ'},
-		{id: 'company', isOpen: false, label: 'Empresa'},
+		{id: 'name', icon: 'person', isOpen: false, label: 'Nome'},
+		{id: 'cis', icon: 'suitcase', isOpen: false, label: 'CIS'},
+		{id: 'rg', icon: 'fingerprint', isOpen: false, label: 'RG'},
+		{id: 'cpf', icon: 'identity', isOpen: false, label: 'CPF'},
+		{id: 'cnpj', icon: 'identity-2', isOpen: false, label: 'CNPJ'},
+		{id: 'company', icon: 'company', isOpen: false, label: 'Empresa'},
 	]);
 	const toggleItem = (id) => {
 		const newItemsToSearch = itemsToSearch.map((data) => {
@@ -26,13 +27,26 @@ function Search () {
 	const renderInputs = () => {
 		return itemsToSearch.map((data) => {
 			if (!data.isOpen) return null;
-			return <Input attribute={['search', data.id]} placeholder = {data.label} key = {data.id}/>;
+			const removeButton = () => {
+				return <div><SvgIcon icon = "minus"/></div>;
+			}
+			return (
+				<Fragment>
+					<Input
+						attribute={['search', data.id]} 
+						appendComponent = {removeButton} 
+						placeholder = {data.label} 
+						key = {data.id}
+					/>
+					<SvgIcon icon = "minus"/>
+				</Fragment>
+			);
 		});
 	};
 	const renderButtons = () => {
 		return itemsToSearch.map((data) => {
 			if (data.isOpen) return null;
-			return <ItemButton handleClick = {() => toggleItem(data.id)} key = {data.id}>{data.label}</ItemButton>;
+			return <ItemButton handleClick = {() => toggleItem(data.id)} icon = {data.icon} key = {data.id}>{data.label}</ItemButton>;
 		});
 	};
 	return (

@@ -120,6 +120,10 @@
     --color-text-title: var(--color-main);
     --color-text-link: #228CDB; /* 228CDB 016FB9 3f88c5 9C95DC 1E91D6 #016FB9 #6699CC */
 
+    --gray-main-color: rgb(204, 204, 204);
+    --disable-main-color: rgb(224, 224, 224);
+    --main-color: #ff0000;
+
 }
 
 * {
@@ -156,4 +160,12 @@ button:hover {
     left: 0;
     z-index: 10;
     width: 100%;
+}
+
+svg {
+    fill: var(--gray-main-color);
+}
+
+a {
+    text-decoration: none;
 }

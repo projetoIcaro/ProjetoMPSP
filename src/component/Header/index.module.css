@@ -1,10 +1,16 @@
 :local(.wrapper) {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--gray-main-color);
     display: flex;
     height: 64px;
-    justify-content: flex-end;
-    margin: 0 8px 0 8px;
     position: relative;
+    width: 100%;
+}
+
+:local(.wrapper) > div {
+    align-items: center;
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 0 8px;
     width: 100%;
 }
 
@@ -13,13 +19,6 @@
     margin: 4px 8px; /* centralizacao da imagem */
 }
 
-:local(.wrapper) > div {
-    display: flex;
-    height: 64px;
-    justify-content: space-between;
-    width: 100%;
-}
-
-:local(.wrapper) > div > div {
-    align-self: center;
+:local(.searchInput) {
+    width: 50%;
 }

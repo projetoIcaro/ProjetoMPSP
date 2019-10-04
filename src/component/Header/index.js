@@ -1,4 +1,4 @@
-import style from './index.module.css';
+import styles from './index.module.css';
 
 import React from 'react';
 import {withRouter} from 'react-router-dom';
@@ -8,13 +8,15 @@ import User from './UserHeader';
 
 function Header (props) {
 	return (
-		<div className = {style.wrapper}>
+		<div className = {styles.wrapper}>
 			{props.location.pathname === '/login' ? (
 				<img alt="compass" src={compassMenu}/>
 			) : (
 				<div>
 					<img alt="compass" src={compassMenu}/>
-					<Input attribute={['search']} placeholder="Buscar"/>
+					<div className = {styles.searchInput}>
+						<Input attribute={['search']} placeholder="Buscar"/>
+					</div>
 					<User/>
 				</div>
 			)}

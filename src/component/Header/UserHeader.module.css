@@ -1,4 +1,24 @@
 :local(.wrapper) {
+    align-items: center;
     display: inline-flex;
-    width: 296px;
+}
+
+:local(.wrapper) > div {
+    margin: 0 8px;
+    width: 64px;
+}
+
+:local(.wrapper) > :local(.menu) {
+    height: 32px;
+    width: 32px;
+}
+
+:local(.wrapper) > :local(.userIcon) {
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 28px;
+    font-size: 1.8em;
+    height: 36px;
+    text-align: center;
+    width: 36px;
 }
