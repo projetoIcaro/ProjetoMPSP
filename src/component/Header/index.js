@@ -2,7 +2,7 @@ import styles from './index.module.css';
 
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import {Input} from 'component/form/FormWrapper';
+// import {Input} from 'component/form/FormWrapper';
 import compassMenu from './images/compass-menu.png';
 import User from './UserHeader';
 
@@ -15,7 +15,7 @@ function Header (props) {
 				<div>
 					<img alt="compass" src={compassMenu}/>
 					<div className = {styles.searchInput}>
-						<Input attribute={['search']} placeholder="Buscar"/>
+						{/*<Input attribute={['searchResult']} placeholder="Buscar"/>*/}
 					</div>
 					<User/>
 				</div>

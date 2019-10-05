@@ -1,8 +1,9 @@
-import style from './Input.module.css';
+import styles from './Input.module.css';
 
 import React, {useRef} from 'react';
 import {connect} from 'react-redux';
 import {setAttrProps} from 'utils/redux/actions/app';
+import SvgIcon from 'component/SvgIcon';
 
 function Input (props) {
 	const inputRef = useRef();
@@ -10,19 +11,41 @@ function Input (props) {
 	const handleChange = () => {
 		actions.setAttrValue(inputRef.current.value);
 	};
+	const handleCleanInput = () => {
+		actions.setAttrValue('');
+	};
+	const handleIconClick = (e) => {
+		handleCleanInput();
+		props.handleIconClick(e);
+	};
+	const resolvedAttrValue = props.attrValue || '';
 	return (
-		<div className = {style.wrapper}>
+		<div className={styles.wrapper}>
 			<input
 				name = {props.name}
 				onChange = {handleChange}
 				placeholder = {props.placeholder}
-				type = {props.type}
 				ref = {inputRef}
+				type = {props.type}
+				value = {resolvedAttrValue}
 			/>
-			{props.appendComponent ? <appendComponent/> : null}
+			{props.icon ?
+				<div onClick={handleIconClick}>
+					<SvgIcon icon={props.icon}/>
+				</div>
+				: null}
 		</div>
 	);
 }
+
+const mapStateToProps = (state, {attribute, formKey}) => {
+	let resolvedAttribute = [];
+	if (formKey) resolvedAttribute = ['form', formKey].concat(attribute);
+	else resolvedAttribute = ['app', 'values'].concat(attribute)
+	return {
+		attrValue: state.getIn(resolvedAttribute),
+	};
+};
 
 const mapDispatchToProps = (dispatch, {attribute, formKey}) => ({
 	actions: {
@@ -32,4 +55,4 @@ const mapDispatchToProps = (dispatch, {attribute, formKey}) => ({
 	}
 });
 
-export default connect(null, mapDispatchToProps)(Input);
+export default connect(mapStateToProps, mapDispatchToProps)(Input);

@@ -1,10 +1,16 @@
 import styles from './Cards.module.css';
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import ApiMap from 'utils/apisMap.json';
 import Card from './Card';
+import {connect} from "react-redux";
+import {cleanExtractionData} from 'utils/redux/actions/app';
 
-function Cards () {
+function Cards (props) {
+	const {actions} = props;
+	useEffect(() => {
+		actions.cleanExtractionData();
+	}, [actions]);
 	return (
 		<div className = {styles.wrapper}>
 			<div className = {styles.title}>RESULTADO DE BUSCA</div>
@@ -22,4 +28,10 @@ function Cards () {
 	);
 }
 
-export default Cards;
+const mapDispatchToProps = (dispatch) => ({
+	actions: {
+		cleanExtractionData: () => dispatch(cleanExtractionData()),
+	}
+});
+
+export default connect(null, mapDispatchToProps)(Cards);

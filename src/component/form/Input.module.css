@@ -19,3 +19,9 @@
     font-size: 0.9em;
     width: 100%;
 }
+
+:local(.wrapper) > div > svg {
+    cursor: pointer;
+    height: 40px;
+    width: 24px;
+}

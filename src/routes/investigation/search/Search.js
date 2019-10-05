@@ -1,20 +1,29 @@
 import styles from './Search.module.css';
 
-import React, {useState, Fragment} from 'react';
+import React, {useEffect, useState} from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Button, Input} from 'component/form/FormWrapper';
-import SvgIcon from 'component/SvgIcon';
 import ItemButton from './ItemButton';
 
-function Search () {
+function Search (props) {
+	const {searchItens} = props;
 	const [itemsToSearch, setItemsToSearch] = useState([
-		{id: 'name', icon: 'person', isOpen: false, label: 'Nome'},
+		{id: 'nome', icon: 'person', isOpen: false, label: 'Nome'},
 		{id: 'cis', icon: 'suitcase', isOpen: false, label: 'CIS'},
 		{id: 'rg', icon: 'fingerprint', isOpen: false, label: 'RG'},
 		{id: 'cpf', icon: 'identity', isOpen: false, label: 'CPF'},
 		{id: 'cnpj', icon: 'identity-2', isOpen: false, label: 'CNPJ'},
-		{id: 'company', icon: 'company', isOpen: false, label: 'Empresa'},
+		{id: 'empresa', icon: 'company', isOpen: false, label: 'Empresa'},
 	]);
+	useEffect(() => {
+		const setItems = itemsToSearch.map((data) => {
+			if (searchItens && searchItens.get(data.id)) data.isOpen = true;
+			return data;
+		});
+		setItemsToSearch(setItems);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 	const toggleItem = (id) => {
 		const newItemsToSearch = itemsToSearch.map((data) => {
 			if (data.id === id) {
@@ -27,35 +36,43 @@ function Search () {
 	const renderInputs = () => {
 		return itemsToSearch.map((data) => {
 			if (!data.isOpen) return null;
-			const removeButton = () => {
-				return <div><SvgIcon icon = "minus"/></div>;
-			}
 			return (
-				<Fragment>
+				<div className={styles.input} key={data.id}>
 					<Input
-						attribute={['search', data.id]} 
-						appendComponent = {removeButton} 
-						placeholder = {data.label} 
-						key = {data.id}
+						attribute={['search', data.id]}
+						handleIconClick={() => toggleItem(data.id)}
+						icon="minus"
+						placeholder={data.label}
 					/>
-					<SvgIcon icon = "minus"/>
-				</Fragment>
+				</div>
 			);
 		});
 	};
 	const renderButtons = () => {
 		return itemsToSearch.map((data) => {
 			if (data.isOpen) return null;
-			return <ItemButton handleClick = {() => toggleItem(data.id)} icon = {data.icon} key = {data.id}>{data.label}</ItemButton>;
+			return (
+				<ItemButton
+					handleClick={() => toggleItem(data.id)}
+					icon={data.icon}
+					key={data.id}
+				>
+					{data.label}
+				</ItemButton>
+			)
 		});
 	};
 	return (
 		<div className = {styles.wrapper}>
 			<div className = {styles.inputSet}>{renderInputs()}</div>
 			<div className = {styles.buttonSet}>{renderButtons()}</div>
-			<Link to = "/investigation/result"><Button>Buscar</Button></Link>
+			<Button><Link to = "/investigation/result">Buscar</Link></Button>
 		</div>
 	);
 }
 
-export default Search;
+const mapStateToProps = (state) => ({
+	searchItens: state.getIn(['app', 'values', 'search']),
+});
+
+export default connect(mapStateToProps)(Search);

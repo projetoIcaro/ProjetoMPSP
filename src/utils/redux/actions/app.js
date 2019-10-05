@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const fetchDataFromApi = (pathname) => {
   return dispatch => {
     fetch('http://localhost:3001' + pathname, {method: 'GET'})
@@ -5,6 +7,26 @@ export const fetchDataFromApi = (pathname) => {
       .then(res => dispatch({data: res, type: 'SET_ROUTE_PROPS'}))
       .catch((err) => console.error(err));
   }
+};
+
+export const fetchExtractionData = (searchValues, name, properties, port) => {
+  const data = searchValues && searchValues.toJS();
+  return dispatch => {
+    axios({
+      method: 'post',
+      url: 'http://localhost:' + port + '/api/' + name + '/GetData',
+      data,
+    })
+      .then(res => res.data)
+      .then(res => dispatch({apiName: name, data: res, type: 'SET_API_EXTRACTION_PROPS'}))
+      .catch((err) => console.error(err));
+  }
+};
+
+export const cleanExtractionData = () => {
+  return dispatch => dispatch({
+    type: 'CLEAN_EXTRACTION_DATA',
+  });
 };
 
 export const postFormData = (pathname, formKey) => {

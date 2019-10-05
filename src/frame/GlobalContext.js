@@ -10,7 +10,7 @@ function GlobalContext (props) {
   }, [actions]);
 
   useEffect(() => {
-    actions.fetchRouteData(location.pathname);
+    // actions.fetchRouteData(location.pathname);
   }, [actions, location.pathname]);
 
   return (

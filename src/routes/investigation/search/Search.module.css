@@ -8,8 +8,17 @@
     height: fit-content;
 }
 
-:local(.wrapper) > :local(.inputSet) > * {
-    margin: 8px 0;
+:local(.wrapper) > :local(.inputSet) > :local(.input) {
+    display: inline-flex;
+    margin: 4px 0;
+    width: 100%;
+}
+
+:local(.wrapper) > :local(.inputSet) > :local(.input) > div > svg {
+    cursor: pointer;
+    height: 40px;
+    margin: 0 16px;
+    width: 24px;
 }
 
 :local(.wrapper) > :local(.buttonSet) {

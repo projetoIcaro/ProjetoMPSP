@@ -3,12 +3,16 @@
     "name": "Jucesp",
     "properties": [
       "empresa"
-    ]
+    ],
+    "port": 3009,
+    "previewData": ["Nome", "Tipo de empresa", "UF"]
   },
   {
-    "name": "Siel",
+    "name": "Caged",
     "properties": [
-      "nome", "cpf"
-    ]
+      "cpf", "nome"
+    ],
+    "port": 3005,
+    "previewData": "*"
   }
 ]

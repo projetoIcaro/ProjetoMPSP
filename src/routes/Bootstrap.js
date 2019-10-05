@@ -1,13 +1,15 @@
-import React, {Fragment, lazy} from 'react';
-import { Route } from 'react-router-dom'
+import React, {lazy} from 'react';
+import {Route, Switch} from 'react-router-dom';
+import GoTo from 'frame/GoTo';
 
 function Bootstrap () {
   return (
-    <Fragment>
+    <Switch>
       <Route path = {'/login'} component = {lazy(() => import('./login/Bootstrap'))} />
       <Route path = {'/user'} component = {lazy(() => import('./user/Bootstrap'))} />
       <Route path = {'/investigation'} component = {lazy(() => import('./investigation/Bootstrap'))} />
-    </Fragment>
+      <Route component = {GoTo}/>
+    </Switch>
   );
 }
 

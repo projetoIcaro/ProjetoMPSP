@@ -18,3 +18,8 @@
     text-decoration: none;
     width: 120px;
 }
+
+:local(.wrapper) > button a {
+    color: var(--color-text-light);
+    text-decoration: none;
+}
