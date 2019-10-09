@@ -7,8 +7,8 @@ import SvgIcon from 'component/SvgIcon';
 const urlLocations = [
 	{iconName: 'home', pathname: '/investigation/result'},
 	{iconName: 'search', pathname: '/investigation/search'},
-	{iconName: 'history', pathname: '/investigation/history'},
-	{iconName: 'target', pathname: '/investigation/target'},
+	// {iconName: 'history', pathname: '/investigation/history'},
+	// {iconName: 'target', pathname: '/investigation/target'},
 	{iconName: 'download', pathname: '/investigation/download'},
 ];
 

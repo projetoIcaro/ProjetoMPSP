@@ -3,7 +3,7 @@ import styles from './index.module.css';
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 // import {Input} from 'component/form/FormWrapper';
-import compassMenu from './images/compass-menu.png';
+import compassMenu from './images/MP1.png';
 import User from './UserHeader';
 
 function Header (props) {

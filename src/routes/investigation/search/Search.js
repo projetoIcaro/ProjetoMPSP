@@ -5,12 +5,13 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Button, Input} from 'component/form/FormWrapper';
 import ItemButton from './ItemButton';
+import CompassLogo from './Grupo_62.png';
 
 function Search (props) {
 	const {searchItens} = props;
 	const [itemsToSearch, setItemsToSearch] = useState([
 		{id: 'nome', icon: 'person', isOpen: false, label: 'Nome'},
-		{id: 'cis', icon: 'suitcase', isOpen: false, label: 'CIS'},
+		{id: 'pis', icon: 'suitcase', isOpen: false, label: 'PIS'},
 		{id: 'rg', icon: 'fingerprint', isOpen: false, label: 'RG'},
 		{id: 'cpf', icon: 'identity', isOpen: false, label: 'CPF'},
 		{id: 'cnpj', icon: 'identity-2', isOpen: false, label: 'CNPJ'},
@@ -62,8 +63,24 @@ function Search (props) {
 			)
 		});
 	};
+	const renderHelpMessage = () => {
+		let hasOpen = false;
+		itemsToSearch.forEach(data => {
+			if (!hasOpen) hasOpen = data.isOpen;
+		});
+		return !hasOpen ?(
+			<div className = {styles.messageLogo}>
+				<div className = {styles.logoCompass}>
+					<img src = {CompassLogo}/>
+				</div>
+				<div className = {styles.helpMessage}>Por favor, selecione um ou mais campos para começar</div>
+			</div>
+		) : null;
+	};
+
 	return (
 		<div className = {styles.wrapper}>
+			{renderHelpMessage()}
 			<div className = {styles.inputSet}>{renderInputs()}</div>
 			<div className = {styles.buttonSet}>{renderButtons()}</div>
 			<Button><Link to = "/investigation/result">Buscar</Link></Button>

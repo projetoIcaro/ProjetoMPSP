@@ -1,5 +1,5 @@
 :local(.wrapper) {
-    margin: 80px auto;
+    margin: 0 auto 80px;
     padding: 40px;
     width: 840px;
 }
@@ -25,4 +25,18 @@
     display: inline-flex;
     justify-content: center;
     width: 100%;
+}
+
+:local(.messageLogo) {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+:local(.helpMessage) {
+    font-size: 1.2em;
+}
+
+:local(.logoCompass) > img {
+    width: 256px;
 }
