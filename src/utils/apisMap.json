@@ -14,5 +14,61 @@
     ],
     "port": 3005,
     "previewData": "*"
+  },
+  {
+    "name": "Arpenp",
+    "properties": [
+      "cpf", "nome"
+    ],
+    "port": 3006,
+    "previewData": "*"
+  },
+  {
+    "name": "Cadesp",
+    "properties": [
+      "cnpj" ,"cpf", "nome"
+    ],
+    "port": 3012,
+    "previewData": "*"
+  },
+  {
+    "name": "Censec",
+    "properties": [
+      "cpf", "nome"
+    ],
+    "port": 3007,
+    "previewData": "*"
+  },
+  {
+    "name": "Infocrim",
+    "properties": [
+      "cpf", "nome"
+    ],
+    "port": 3003,
+    "previewData": "*"
+  },
+  {
+    "name": "Infoseg",
+    "properties": [
+      "cpf", "nome"
+    ],
+    "port": 3004,
+    "previewData": "*"
+  },
+  {
+    "name": "Siel",
+    "properties": [
+      "cpf", "nome"
+    ],
+    "port": 3002,
+    "previewData": "*"
+  },
+  {
+    "name": "Sivec",
+    "properties": [
+      "cpf", "nome"
+    ],
+    "port": 3008,
+    "previewData": "*"
   }
 ]

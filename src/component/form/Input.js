@@ -21,6 +21,9 @@ function Input (props) {
 	const resolvedAttrValue = props.attrValue || '';
 	return (
 		<div className={styles.wrapper}>
+			<div className = {styles.iconSearch}>
+				<SvgIcon icon = "search"/>
+			</div>
 			<input
 				name = {props.name}
 				onChange = {handleChange}
@@ -30,7 +33,7 @@ function Input (props) {
 				value = {resolvedAttrValue}
 			/>
 			{props.icon ?
-				<div onClick={handleIconClick}>
+				<div className = {styles.iconLess} onClick={handleIconClick}>
 					<SvgIcon icon={props.icon}/>
 				</div>
 				: null}

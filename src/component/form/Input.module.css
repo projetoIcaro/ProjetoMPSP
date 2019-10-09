@@ -20,8 +20,24 @@
     width: 100%;
 }
 
-:local(.wrapper) > div > svg {
+:local(.iconSearch) {
+    height: 40px;
+    width: 40px;
+}
+
+:local(.iconSearch) > svg {
+    fill: var(--main-color);
+    height: 40px;
+    width: 24px;
+}
+
+:local(.iconLess) {
     cursor: pointer;
+    height: 40px;
+    width: 40px;
+}
+
+:local(.iconLess) > svg {
     height: 40px;
     width: 24px;
 }
