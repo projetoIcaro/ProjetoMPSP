@@ -1,15 +1,8 @@
 import React from 'react';
+import DownloadButton from './Download';
 
 function index () {
-  return 
-  (
-    {
-      <h1>Botão feio</h1>
-      <h1>Botão feio</h1>
-    }
-  )
-;
-
+  return <DownloadButton />
 }
 
 export default index;
