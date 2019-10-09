@@ -19,7 +19,7 @@ export const fetchExtractionData = (searchValues, name, properties, port) => {
     })
       .then(res => res.data)
       .then(res => dispatch({apiName: name, data: res, type: 'SET_API_EXTRACTION_PROPS'}))
-      .catch((err) => console.error(err));
+      .catch(() => dispatch({apiName: name, data: {err: 'api fora do ar'}, type: 'SET_API_EXTRACTION_PROPS'}));
   }
 };
 

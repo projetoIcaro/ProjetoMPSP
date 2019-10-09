@@ -1,6 +1,6 @@
 import styles from './Card.module.css';
 
-import React, {Fragment, useEffect, useState} from 'react';
+import React, {Fragment, useEffect, useRef, useState} from 'react';
 import {connect} from 'react-redux';
 import {isImmutable} from 'immutable';
 import Modal from 'component/Modal';
@@ -8,11 +8,15 @@ import Spinner from "component/useless/Spinner";
 import {cleanExtractionData, fetchExtractionData} from 'utils/redux/actions/app';
 
 function Card (props) {
+	const isInitalMount = useRef(true);
 	const [isModalOpen, setModalOpen] = useState(false);
-	const {actions, extractionData, name, searchValues, previewData} = props;
+	const {actions, extractionData, name, newSearch, searchValues, previewData} = props;
 	useEffect(() => {
-		actions.getExtractionData(searchValues);
-	}, [actions, searchValues]);
+		if (newSearch || isInitalMount) {
+			actions.getExtractionData(searchValues);
+			isInitalMount.current = false;
+		}
+	}, [actions, newSearch, searchValues]);
 	const handleClick = () => {
 		setModalOpen(true);
 	};

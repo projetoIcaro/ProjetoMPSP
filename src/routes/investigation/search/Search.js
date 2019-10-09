@@ -6,9 +6,10 @@ import {Link} from 'react-router-dom';
 import {Button, Input} from 'component/form/FormWrapper';
 import ItemButton from './ItemButton';
 import CompassLogo from './Grupo_62.png';
+import {setAttrProps} from 'utils/redux/actions/app';
 
 function Search (props) {
-	const {searchItens} = props;
+	const {searchItems} = props;
 	const [itemsToSearch, setItemsToSearch] = useState([
 		{id: 'nome', icon: 'person', isOpen: false, label: 'Nome'},
 		{id: 'pis', icon: 'suitcase', isOpen: false, label: 'PIS'},
@@ -19,12 +20,17 @@ function Search (props) {
 	]);
 	useEffect(() => {
 		const setItems = itemsToSearch.map((data) => {
-			if (searchItens && searchItens.get(data.id)) data.isOpen = true;
+			if (searchItems && searchItems.get(data.id)) data.isOpen = true;
 			return data;
 		});
 		setItemsToSearch(setItems);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
+	const handleSearchClick = () => {
+		props.actions.setHasToSearch(true);
+	};
+
 	const toggleItem = (id) => {
 		const newItemsToSearch = itemsToSearch.map((data) => {
 			if (data.id === id) {
@@ -63,6 +69,7 @@ function Search (props) {
 			)
 		});
 	};
+	
 	const renderHelpMessage = () => {
 		let hasOpen = false;
 		itemsToSearch.forEach(data => {
@@ -71,7 +78,7 @@ function Search (props) {
 		return !hasOpen ?(
 			<div className = {styles.messageLogo}>
 				<div className = {styles.logoCompass}>
-					<img src = {CompassLogo}/>
+					<img alt = "compass-logo" src = {CompassLogo}/>
 				</div>
 				<div className = {styles.helpMessage}>Por favor, selecione um ou mais campos para começar</div>
 			</div>
@@ -83,13 +90,19 @@ function Search (props) {
 			{renderHelpMessage()}
 			<div className = {styles.inputSet}>{renderInputs()}</div>
 			<div className = {styles.buttonSet}>{renderButtons()}</div>
-			<Button><Link to = "/investigation/result">Buscar</Link></Button>
+			<Button><Link onClick = {handleSearchClick} to = "/investigation/result">Buscar</Link></Button>
 		</div>
 	);
 }
 
 const mapStateToProps = (state) => ({
-	searchItens: state.getIn(['app', 'values', 'search']),
+	searchItems: state.getIn(['app', 'values', 'search']),
 });
 
-export default connect(mapStateToProps)(Search);
+const mapDispatchToProps = (dispatch) => ({
+	actions: {
+		setHasToSearch: (value) => dispatch(setAttrProps(['hasToSearch'], value)),
+	}
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
