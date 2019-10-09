@@ -19,43 +19,24 @@ const styles = StyleSheet.create({
 	}
 });
 
-// const renderExtractionDataRecursively = (data = null, isPreview = false) => {
-// 	const dataToRender = [];
-// 	data.forEach((value, key) => {
-// 		if (!isPreview || previewData === '*' || previewData.includes(key)) {
-// 			dataToRender.push(
-// 				<div className = {styles.itemData} key = {key}>
-// 					<div className = {styles.itemDataKey}>{key + ': '}</div>
-// 					{!isImmutable(value) ? <span>{value}</span> : renderExtractionDataRecursively(value, isPreview)}
-// 				</div>
-// 			);
-// 		}
-// 	});
-// 	return dataToRender;
-// };
+const renderExtractionDataRecursively = (data = null) => {
+	const dataToRender = [];
+	data.forEach((value, key) => {
+		const parentKey = !isImmutable(value) ? null : <Text key = {key}>{key + ': '}</Text>;
+		const component = !isImmutable(value) ? <Text key = {key}>{key + ': ' + value}</Text> : renderExtractionDataRecursively(value);
+		dataToRender.push(parentKey, component);
+	});
+	return dataToRender;
+};
 
 function DownloadButton (props) {
 	const {extractionData} = props;
-  // const MyDocument = GerarPDF({'ok': true})
+	// const MyDocument = GerarPDF({'ok': true})
 
 	const renderItemsByApi = (apiName) => {
 		const apiData = extractionData.get(apiName);
-		const dataToRender = [];
-		if (!apiData) return dataToRender;
-		apiData.forEach(((data, key) => {
-			let component;
-			if (!isImmutable(data)) {
-				component = <Text key = {key}>{key + ': ' + data}</Text>;
-			} else {
-				component = [];
-				component.push(<Text key = {key}>{key + ':'}</Text>);
-				data.forEach((value, keyValue) => {
-					component.push(<Text key = {keyValue}>{keyValue + ': ' + value}</Text>);
-				});
-			}
-			dataToRender.push(component);
-		}));
-		return dataToRender;
+		if (!apiData) return [];
+		return renderExtractionDataRecursively(apiData);
 	};
 
 	const render = ApiMap.map(data => {
@@ -69,13 +50,13 @@ function DownloadButton (props) {
 		);
 	});
 
-  return (
-    <PDFViewer width={'100%'}>
+	return (
+		<PDFViewer width={'100%'}>
 			<Document>
-        {render}
+				{render}
 			</Document>
-    </PDFViewer>
-  )
+		</PDFViewer>
+	)
 }
 
 // const GerarPDF = (data = null, isPreview = false) => {
