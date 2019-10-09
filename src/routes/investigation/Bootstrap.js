@@ -9,6 +9,7 @@ function Bootstrap (props) {
       <Route path = {props.match.path + '/search'} component = {lazy(() => import('./search/Bootstrap'))}/>
       <Route path = {props.match.path + '/workspace'} component = {lazy(() => import('./workspace/Bootstrap'))}/>
       <Route path = {props.match.path + '/target'} component = {lazy(() => import('./target/Bootstrap'))}/>
+      <Route path = {props.match.path + '/download'} component = {lazy(() => import('./download/Bootstrap'))}/>
     </Fragment>
   );
 }
